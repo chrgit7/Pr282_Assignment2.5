@@ -27,6 +27,7 @@ namespace WindowsFormsApplicationDemo
             prompt.Controls.Add(confirmation);
             prompt.Controls.Add(textLabel);
             prompt.AcceptButton = confirmation;
+            
 
             return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
         }

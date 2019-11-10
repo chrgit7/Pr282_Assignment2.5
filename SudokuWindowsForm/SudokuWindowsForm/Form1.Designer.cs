@@ -48,6 +48,7 @@ namespace WindowsFormsApplicationDemo
             this.UndoButton = new System.Windows.Forms.Button();
             this.RedoButton = new System.Windows.Forms.Button();
             this.HintButton = new System.Windows.Forms.Button();
+            this.XTxBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -82,7 +83,7 @@ namespace WindowsFormsApplicationDemo
             // 
             // loadCSVBtn
             // 
-            this.loadCSVBtn.Location = new System.Drawing.Point(605, 260);
+            this.loadCSVBtn.Location = new System.Drawing.Point(605, 300);
             this.loadCSVBtn.Name = "loadCSVBtn";
             this.loadCSVBtn.Size = new System.Drawing.Size(75, 23);
             this.loadCSVBtn.TabIndex = 4;
@@ -163,7 +164,7 @@ namespace WindowsFormsApplicationDemo
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(605, 341);
+            this.SaveButton.Location = new System.Drawing.Point(605, 360);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 12;
@@ -173,7 +174,7 @@ namespace WindowsFormsApplicationDemo
             // 
             // LoadNormal
             // 
-            this.LoadNormal.Location = new System.Drawing.Point(605, 315);
+            this.LoadNormal.Location = new System.Drawing.Point(605, 335);
             this.LoadNormal.Name = "LoadNormal";
             this.LoadNormal.Size = new System.Drawing.Size(75, 23);
             this.LoadNormal.TabIndex = 13;
@@ -229,11 +230,22 @@ namespace WindowsFormsApplicationDemo
             this.HintButton.UseVisualStyleBackColor = true;
             this.HintButton.Click += new System.EventHandler(this.HintButton_Click);
             // 
+            // XTxBox
+            // 
+            this.XTxBox.BackColor = System.Drawing.Color.Silver;
+            this.XTxBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.XTxBox.Location = new System.Drawing.Point(543, 248);
+            this.XTxBox.Name = "XTxBox";
+            this.XTxBox.Size = new System.Drawing.Size(229, 24);
+            this.XTxBox.TabIndex = 19;
+            this.XTxBox.Text = "X:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 761);
+            this.Controls.Add(this.XTxBox);
             this.Controls.Add(this.HintButton);
             this.Controls.Add(this.RedoButton);
             this.Controls.Add(this.UndoButton);
@@ -283,6 +295,7 @@ namespace WindowsFormsApplicationDemo
         private System.Windows.Forms.Button UndoButton;
         private System.Windows.Forms.Button RedoButton;
         private System.Windows.Forms.Button HintButton;
+        private System.Windows.Forms.Label XTxBox;
     }
 }
 

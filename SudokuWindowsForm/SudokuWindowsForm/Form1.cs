@@ -45,7 +45,7 @@ namespace WindowsFormsApplicationDemo
             {
                 MakeButton("iptbtn_", j.ToString(), 10, j, -1 );
             }
-            this.ClickedText = "1"; // default setting before a number has been chosen
+            this.ClickedText = "1";
         }
 
         public void SetClicks()
@@ -272,6 +272,8 @@ namespace WindowsFormsApplicationDemo
 
         private void LoadDialog()
         {
+            //mycontroller.loadialog
+                // call static view class for open load dialog 
             Stream myStream = null;
             OpenFileDialog theDialog = new OpenFileDialog();
             theDialog.Title = "Open CSV File";
@@ -293,7 +295,7 @@ namespace WindowsFormsApplicationDemo
                             try
                             {
                                 frozenButtons = fileLines.ElementAt(2);
-                            }catch(Exception e)
+                            }catch
                             {
                                 // no default values to find 
                             }
@@ -316,7 +318,7 @@ namespace WindowsFormsApplicationDemo
 
         private void LoadNormal_Click(object sender, EventArgs e)
         {           
-            LoadDialog();
+            myController.LoadDialog();
         }
 
         private void UndoButton_Click(object sender, EventArgs e)

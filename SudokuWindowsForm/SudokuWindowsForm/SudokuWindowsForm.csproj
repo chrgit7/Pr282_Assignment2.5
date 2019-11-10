@@ -60,6 +60,7 @@
     <Compile Include="ISerialise.cs" />
     <Compile Include="ISet.cs" />
     <Compile Include="IView.cs" />
+    <Compile Include="LoadPrompt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Prompt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

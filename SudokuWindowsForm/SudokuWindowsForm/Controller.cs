@@ -22,7 +22,8 @@ namespace WindowsFormsApplicationDemo
         private int AmountOfMoves;
         private int CurrentMove;
         private List<string[]> MovesMade = new List<string[]>();
-        private int[] FrozenValues;        
+        private int[] FrozenValues;
+        private Boolean XType;
 
         public Controller(IView theView, Game theGame)
         {
@@ -44,6 +45,7 @@ namespace WindowsFormsApplicationDemo
             RecreateUI();
             AmountOfMoves = 0;
             CurrentMove = 0;
+            XType = false;
         }
 
         public void OnLoad(int timeAmount, string csv, string frozen = null )
@@ -51,8 +53,9 @@ namespace WindowsFormsApplicationDemo
             if (frozen != null)
             {
                 FrozenValues = frozen.Split(',').Select(int.Parse).ToArray();
-            }
-            mySerialise.FromCSV(csv); 
+            }            
+            mySerialise.FromCSV(csv);
+            AskIfXType();
             myView.ClearCellButtons();
             myView.DeleteLines();
             myView.GameOverVisible(false);
@@ -71,7 +74,7 @@ namespace WindowsFormsApplicationDemo
             {
                 name = MovesMade[CurrentMove - 1];
             }
-            catch (Exception e)
+            catch
             {
                 myView.MessagePrompt("You can only undo 5 times!");
                 CurrentMove++;
@@ -92,7 +95,7 @@ namespace WindowsFormsApplicationDemo
             {
                 name = MovesMade[CurrentMove - 1];
             }
-            catch(Exception e)
+            catch
             {
                 myView.MessagePrompt("You can only redo 5 times!");
                 CurrentMove--;
@@ -105,6 +108,13 @@ namespace WindowsFormsApplicationDemo
                 CurrentMove++;
             }
         }
+
+        public void LoadDialog()
+        {
+            string[] getFileContents = new LoadPrompt().LoadDialogPrompt();
+            //OnLoad( int timeAmount, string csv, string frozen = null)
+        }
+
 
         protected void RecreateUI()
         {
@@ -181,6 +191,8 @@ namespace WindowsFormsApplicationDemo
             CheckTableIsValid(row, "row");
             CheckTableIsValid(col, "col");
             CheckTableIsValid(sqr, "sqr");
+            CheckTableIsValid(1, "x"); // fix this later
+            
             IfVictory();
         }
 
@@ -204,6 +216,14 @@ namespace WindowsFormsApplicationDemo
                 CheckTableIsValid(i, "sqr");
             }
             IfVictory();
+        }
+
+        private void AskIfXType()
+        {
+            if (myGame.SudokuCells.Length != 36)
+            {
+                XType = true;
+            }            
         }
 
         private void IfVictory()
