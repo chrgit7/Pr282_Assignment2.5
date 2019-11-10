@@ -111,8 +111,9 @@ namespace WindowsFormsApplicationDemo
 
         public void LoadDialog()
         {
+            //timerAmount.ToString(), buttons, frozenButtons
             string[] getFileContents = new LoadPrompt().LoadDialogPrompt();
-            //OnLoad( int timeAmount, string csv, string frozen = null)
+            OnLoad(Int32.Parse(getFileContents[0]), getFileContents[1], getFileContents[2]);            
         }
 
 
