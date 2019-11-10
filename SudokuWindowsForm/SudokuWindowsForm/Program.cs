@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SudokuWindowsForm
+namespace WindowsFormsApplicationDemo
 {
     static class Program
     {
@@ -16,7 +13,10 @@ namespace SudokuWindowsForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Form1 myFrm = new Form1();
+            Controller myCon = new Controller(myFrm, new Game());
+            myFrm.SetController(myCon);
+            Application.Run(myFrm);            
         }
     }
 }
