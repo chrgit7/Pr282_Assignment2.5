@@ -1,2 +1,2 @@
 # Pr282_Assignment2.5
-Aiiie
+Adding the View to the MVC structure for a Sudoku game. 
